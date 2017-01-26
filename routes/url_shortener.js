@@ -15,8 +15,10 @@ const connection = mysql.createConnection({
 // Regular expression to check for links
 const regx = /(http(s)?\:\/\/(www.)?.+)/;
 
-// GET call /new/:link where link is the desired URL to be shortened
-//    will return a number which represents the key of the stored URL in the database
+/**
+ *  GET call /new/:link where link is the desired URL to be shortened
+ *    -> will return a number which represents the key of the stored URL in the database
+ */
 router.get('/new/:link*', (req, res) => {
   let id;
   let link = req.params.link + req.params['0'];
@@ -45,6 +47,11 @@ router.get('/new/:link*', (req, res) => {
   }
 });
 
+/**
+ *  GET call /:id where id is the requested id of the url stored in the database
+ *    -> will redirect user to the website specified by the id if it is valid and exists
+ *    -> otherwise will give an error
+ */
 router.get('/:id', (req, res) => {
   let link;
   let id = parseInt(req.params.id);
