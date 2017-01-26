@@ -18,5 +18,5 @@ app.use('/', url_shortener);
 
 // Server port listen
 app.listen(5002, process.env.IP, () => {
-  console.log('Timestamp API server started on port 5002.');
+  console.log('URL Shortener server started on port 5002.');
 });
